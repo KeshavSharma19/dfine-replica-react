@@ -1,4 +1,5 @@
 import { Search, User, Heart, ShoppingBag, ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -39,9 +40,9 @@ const Header = () => {
             <button className="p-1.5 text-foreground hover:text-accent transition-colors" aria-label="Search">
               <Search className="w-5 h-5" />
             </button>
-            <button className="p-1.5 text-foreground hover:text-accent transition-colors" aria-label="Account">
+            <Link to="/signin" className="p-1.5 text-foreground hover:text-accent transition-colors" aria-label="Account">
               <User className="w-5 h-5" />
-            </button>
+            </Link>
             <button className="p-1.5 text-foreground hover:text-accent transition-colors" aria-label="Wishlist">
               <Heart className="w-5 h-5" />
             </button>
