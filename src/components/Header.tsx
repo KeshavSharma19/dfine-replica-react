@@ -20,9 +20,10 @@ const Header = () => {
               onMouseEnter={() => setShopMenuOpen(true)}
               onMouseLeave={() => setShopMenuOpen(false)}
             >
-              <a href="#" className="text-sm font-medium text-foreground hover:text-accent transition-colors flex items-center gap-1">
+              <a href="#" className="text-sm font-medium text-foreground hover:text-accent transition-colors flex items-center gap-1 py-6">
                 Shop <ChevronDown className="w-3 h-3" />
               </a>
+              {shopMenuOpen && <ShopMegaMenu />}
             </div>
             <a href="#" className="text-sm font-medium text-foreground hover:text-accent transition-colors">
               Deals
@@ -62,16 +63,6 @@ const Header = () => {
           </div>
         </div>
       </div>
-
-      {/* Mega Menu */}
-      {shopMenuOpen && (
-        <div
-          onMouseEnter={() => setShopMenuOpen(true)}
-          onMouseLeave={() => setShopMenuOpen(false)}
-        >
-          <ShopMegaMenu />
-        </div>
-      )}
     </header>
   );
 };
