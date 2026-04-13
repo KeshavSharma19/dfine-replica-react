@@ -1,13 +1,14 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Search, User, Heart, ShoppingBag, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import ShopMegaMenu from "./ShopMegaMenu";
 
 const Header = () => {
   const [shopMenuOpen, setShopMenuOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
 
   return (
-    <header className="bg-background border-b border-border relative">
+    <header ref={headerRef} className="bg-background border-b border-border relative z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Left Nav */}
@@ -16,21 +17,12 @@ const Header = () => {
               Design Your Own <ChevronDown className="w-3 h-3" />
             </a>
             <div
-              className="relative"
               onMouseEnter={() => setShopMenuOpen(true)}
               onMouseLeave={() => setShopMenuOpen(false)}
             >
-              <a href="#" className="text-sm font-medium text-foreground hover:text-accent transition-colors flex items-center gap-1 py-7">
+              <a href="#" className="text-sm font-medium text-foreground hover:text-accent transition-colors flex items-center gap-1 h-16 md:h-20 flex items-center">
                 Shop <ChevronDown className="w-3 h-3" />
               </a>
-              {shopMenuOpen && (
-                <div
-                  className="fixed left-0 right-0 z-50"
-                  style={{ top: 'var(--header-bottom)' }}
-                >
-                  <ShopMegaMenu />
-                </div>
-              )}
             </div>
             <a href="#" className="text-sm font-medium text-foreground hover:text-accent transition-colors">
               Deals
@@ -70,6 +62,17 @@ const Header = () => {
           </div>
         </div>
       </div>
+
+      {/* Mega Menu - rendered as part of header for seamless hover */}
+      {shopMenuOpen && (
+        <div
+          className="absolute left-0 right-0 top-full"
+          onMouseEnter={() => setShopMenuOpen(true)}
+          onMouseLeave={() => setShopMenuOpen(false)}
+        >
+          <ShopMegaMenu />
+        </div>
+      )}
     </header>
   );
 };
