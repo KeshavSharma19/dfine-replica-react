@@ -1,9 +1,13 @@
+import { useState } from "react";
 import { Search, User, Heart, ShoppingBag, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
+import ShopMegaMenu from "./ShopMegaMenu";
 
 const Header = () => {
+  const [shopMenuOpen, setShopMenuOpen] = useState(false);
+
   return (
-    <header className="bg-background border-b border-border">
+    <header className="bg-background border-b border-border relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Left Nav */}
@@ -11,9 +15,15 @@ const Header = () => {
             <a href="#" className="text-sm font-medium text-foreground hover:text-accent transition-colors flex items-center gap-1">
               Design Your Own <ChevronDown className="w-3 h-3" />
             </a>
-            <a href="#" className="text-sm font-medium text-foreground hover:text-accent transition-colors flex items-center gap-1">
-              Shop <ChevronDown className="w-3 h-3" />
-            </a>
+            <div
+              className="relative"
+              onMouseEnter={() => setShopMenuOpen(true)}
+              onMouseLeave={() => setShopMenuOpen(false)}
+            >
+              <a href="#" className="text-sm font-medium text-foreground hover:text-accent transition-colors flex items-center gap-1">
+                Shop <ChevronDown className="w-3 h-3" />
+              </a>
+            </div>
             <a href="#" className="text-sm font-medium text-foreground hover:text-accent transition-colors">
               Deals
             </a>
@@ -52,6 +62,16 @@ const Header = () => {
           </div>
         </div>
       </div>
+
+      {/* Mega Menu */}
+      {shopMenuOpen && (
+        <div
+          onMouseEnter={() => setShopMenuOpen(true)}
+          onMouseLeave={() => setShopMenuOpen(false)}
+        >
+          <ShopMegaMenu />
+        </div>
+      )}
     </header>
   );
 };
