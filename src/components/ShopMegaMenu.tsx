@@ -62,7 +62,7 @@ const shopByShape = [
 
 const ShopMegaMenu = () => {
   return (
-    <div className="absolute left-0 top-full w-full bg-background border-b border-border shadow-lg z-50 animate-fade-in">
+    <div className="fixed left-0 right-0 bg-background border-b border-border shadow-lg z-50 animate-fade-in">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-6 gap-8">
           {/* Rings & Bands */}
