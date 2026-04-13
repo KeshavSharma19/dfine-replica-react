@@ -20,10 +20,17 @@ const Header = () => {
               onMouseEnter={() => setShopMenuOpen(true)}
               onMouseLeave={() => setShopMenuOpen(false)}
             >
-              <a href="#" className="text-sm font-medium text-foreground hover:text-accent transition-colors flex items-center gap-1 py-6">
+              <a href="#" className="text-sm font-medium text-foreground hover:text-accent transition-colors flex items-center gap-1 py-7">
                 Shop <ChevronDown className="w-3 h-3" />
               </a>
-              {shopMenuOpen && <ShopMegaMenu />}
+              {shopMenuOpen && (
+                <div
+                  className="fixed left-0 right-0 z-50"
+                  style={{ top: 'var(--header-bottom)' }}
+                >
+                  <ShopMegaMenu />
+                </div>
+              )}
             </div>
             <a href="#" className="text-sm font-medium text-foreground hover:text-accent transition-colors">
               Deals
