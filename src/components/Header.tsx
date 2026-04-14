@@ -2,9 +2,11 @@ import { useState } from "react";
 import { Search, User, Heart, ShoppingBag, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import ShopMegaMenu from "./ShopMegaMenu";
+import SearchOverlay from "./SearchOverlay";
 
 const Header = () => {
   const [shopMenuOpen, setShopMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
 
   return (
     <div
