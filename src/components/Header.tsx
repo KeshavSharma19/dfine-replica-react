@@ -61,9 +61,9 @@ const Header = () => {
               <Link to="/signin" className="p-1.5 text-foreground hover:text-accent transition-colors" aria-label="Account">
                 <User className="w-5 h-5" />
               </Link>
-              <button className="p-1.5 text-foreground hover:text-accent transition-colors" aria-label="Wishlist">
+              <Link to="/wishlist" className="p-1.5 text-foreground hover:text-accent transition-colors" aria-label="Wishlist">
                 <Heart className="w-5 h-5" />
-              </button>
+              </Link>
               <button className="p-1.5 text-foreground hover:text-accent transition-colors relative" aria-label="Cart">
                 <ShoppingBag className="w-5 h-5" />
               </button>
