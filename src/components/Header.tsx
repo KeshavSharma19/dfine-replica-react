@@ -2,9 +2,11 @@ import { useState } from "react";
 import { Search, User, Heart, ShoppingBag, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import ShopMegaMenu from "./ShopMegaMenu";
+import SearchOverlay from "./SearchOverlay";
 
 const Header = () => {
   const [shopMenuOpen, setShopMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
 
   return (
     <div
@@ -53,7 +55,7 @@ const Header = () => {
               <span className="hidden lg:flex items-center gap-1 text-xs text-muted-foreground">
                 EN | USD ($) <ChevronDown className="w-3 h-3" />
               </span>
-              <button className="p-1.5 text-foreground hover:text-accent transition-colors" aria-label="Search">
+              <button className="p-1.5 text-foreground hover:text-accent transition-colors" aria-label="Search" onClick={() => setSearchOpen(true)}>
                 <Search className="w-5 h-5" />
               </button>
               <Link to="/signin" className="p-1.5 text-foreground hover:text-accent transition-colors" aria-label="Account">
@@ -72,6 +74,8 @@ const Header = () => {
 
       {/* Mega Menu */}
       {shopMenuOpen && <ShopMegaMenu />}
+
+      <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
     </div>
   );
 };
