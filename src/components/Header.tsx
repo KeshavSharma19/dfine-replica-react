@@ -74,6 +74,8 @@ const Header = () => {
 
       {/* Mega Menu */}
       {shopMenuOpen && <ShopMegaMenu />}
+
+      <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
     </div>
   );
 };
