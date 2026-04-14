@@ -55,7 +55,7 @@ const Header = () => {
               <span className="hidden lg:flex items-center gap-1 text-xs text-muted-foreground">
                 EN | USD ($) <ChevronDown className="w-3 h-3" />
               </span>
-              <button className="p-1.5 text-foreground hover:text-accent transition-colors" aria-label="Search">
+              <button className="p-1.5 text-foreground hover:text-accent transition-colors" aria-label="Search" onClick={() => setSearchOpen(true)}>
                 <Search className="w-5 h-5" />
               </button>
               <Link to="/signin" className="p-1.5 text-foreground hover:text-accent transition-colors" aria-label="Account">
